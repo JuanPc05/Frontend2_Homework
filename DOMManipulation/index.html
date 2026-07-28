@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@75..100,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="image/icon.png" type="image/x-icon" />
+    <title>To-DO</title>
+  </head>
+  <body>
+    <main class="contenedor">
+      <h1>To-Do</h1>
+      
+      <!-- Se agregó un id al form para interceptarlo con JS -->
+      <form id="formulario-tarea" action="" class="formulario">
+        <input
+          type="text"
+          id="ingresar-tarea" 
+          class="ingresar-tarea"
+          placeholder="Ingresar tarea"
+        />
+        <button type="submit">Create to-do</button>
+      </form>
+      
+      <div id="lista-de-tareas">
+        <!-- Tareas-->
+      </div>
+    </main>
+    
+    <!-- ¡Aquí conectas tu JavaScript! (asegúrate de que el nombre del archivo coincida) -->
+    <script src="app.js"></script> 
+  </body>
+</html>

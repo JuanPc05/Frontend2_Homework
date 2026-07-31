@@ -72,6 +72,7 @@ function eliminarTarea(e) {
     guardarTareas();
 }
 
+
 function cargarTareas() {
     const tareasGuardadas = obtenerTareasGuardadas();
     tareasGuardadas.forEach(({ texto, completada }) => {
@@ -81,4 +82,4 @@ function cargarTareas() {
 }
 
 formulario.addEventListener('submit', agregarTarea);
-cargarTareas();
+cargarTareas(); 

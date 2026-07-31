@@ -158,3 +158,10 @@ i {
     color: #ef4444;
     transform: scale(1.1);
 }
+
+.input-edicion {
+    font: inherit;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+}

@@ -1,17 +1,29 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
+/* Eliminamos el * y el body extensos, Bootstrap ya normaliza eso */
 
 body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 0;
+    /* Mantenemos tu imagen de fondo */
     background: url('image/japan-background-digital-art.jpg') no-repeat center center/cover;
-    color: #f0f4f8; 
+}
+
+.main_contain {
+    /* Ancho máximo para que sea responsivo en móviles */
+    width: 90%; 
+    max-width: 750px;
+    
+    /* El efecto Cristal (Glassmorphism) */
+    background-color: rgba(17, 24, 39, 0.5); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Para soporte en Safari */
+    
+    /* Borde sutil transparente */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    
+    /* Aseguramos que si hay muchos productos, se pueda scrollear internamente */
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Opcional: Para que los inputs no rompan la estética oscura, puedes personalizarlos un poco */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.9);
 }

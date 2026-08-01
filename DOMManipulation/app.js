@@ -58,7 +58,14 @@ function agregarTarea(evento) {
 
     if (input.value) {
         const tareaNueva = crearElementoTarea(input.value, false);
-        listaDeTarea.appendChild(tareaNueva);
+
+        const primeraCompleta = listaDeTarea.querySelector('.tarea-completa');
+        if (primeraCompleta) {
+            listaDeTarea.insertBefore(tareaNueva, primeraCompleta);
+        } else {
+            listaDeTarea.appendChild(tareaNueva);
+        }
+        
 
         input.value = ''; 
         guardarTareas();
@@ -70,6 +77,15 @@ function agregarTarea(evento) {
 function completarTarea(e) {
     let tarea = e.target.parentNode.parentNode;
     tarea.classList.toggle('tarea-completa');
+    if (tarea.classList.contains('tarea-completa')) {
+        listaDeTarea.appendChild(tarea);
+    } else {
+        const primeraCompleta = listaDeTarea.querySelector('.tarea-completa');
+        if( primeraCompleta) {
+            listaDeTarea.insertBefore(tarea, primeraCompleta);
+        }
+    }
+
     guardarTareas();
 }
 

@@ -1,18 +1,5 @@
-/* =========================================================================
-   style.css — Catálogo de Películas
-   Concepto: videoclub retro / cinta VHS. Fondo oscuro azulado, contenedores
-   de vidrio esmerilado (glassmorphism), acentos neón. El elemento "firma"
-   son las tarjetas de película con silueta de cinta VHS (borde perforado).
-   ========================================================================= */
-
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap");
 
-/* --- Tokens de diseño ---------------------------------------------------
-   Centralizamos colores y medidas en variables CSS (custom properties).
-   Ventaja sobre hardcodear el valor en cada regla: si querés cambiar el
-   acento magenta por otro color, se cambia en un solo lugar y se propaga
-   a todo el archivo. Es el mismo principio de "single source of truth"
-   que usamos en storage.js, aplicado a diseño en vez de a datos. */
 :root {
   --bg: #0b0e1a;
   --bg-alt: #12162a;
@@ -54,7 +41,6 @@ body {
     radial-gradient(circle at 85% 100%, rgba(5, 242, 219, 0.12), transparent 45%);
   background-attachment: fixed;
 }
-
 
 .glass {
   background: var(--glass);
@@ -261,9 +247,39 @@ body {
 
 .movie-card {
   position: relative;
-  padding: 18px 18px 16px 26px;
+  padding: 0 0 16px;
   overflow: hidden;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.movie-card .movie-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  display: block;
+  background: linear-gradient(
+    160deg,
+    rgba(123, 47, 247, 0.14),
+    rgba(5, 242, 219, 0.08)
+  );
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.movie-card .movie-poster-placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.movie-card .movie-body {
+  padding: 14px 18px 0 26px;
+  position: relative;
 }
 
 .movie-card:hover {
@@ -365,6 +381,21 @@ body {
   outline: none;
   border-color: var(--neon-cyan);
   box-shadow: 0 0 0 3px rgba(5, 242, 219, 0.15);
+}
+
+.form-row input[type="file"] {
+  padding: 8px;
+  font-size: 0.85rem;
+}
+
+.poster-preview {
+  margin-top: 10px;
+  width: 100px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 0 14px rgba(5, 242, 219, 0.25);
 }
 
 .form-actions {

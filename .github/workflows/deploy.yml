@@ -1,8 +1,10 @@
 name: Deploy GitHub Pages
-
 on:
   push:
     branches: [ "main" ]
+
+permissions:
+  contents: write   # necesario para que la acción pueda pushear a gh-pages
 
 jobs:
   build-and-deploy:
@@ -10,7 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

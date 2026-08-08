@@ -40,7 +40,17 @@
         <input type="number" id="input-anio" placeholder="Ej: 1982" />
       </div>
 
+      <div class="form-row">
+        <label for="input-poster">URL del póster (opcional)</label>
+        <input type="url" id="input-poster" placeholder="https://ejemplo.com/poster.jpg">
+        
+        <img id="poster-preview" class="poster-preview hidden" alt="Vista previa del póster" />
+      </div>
+
       <div class="form-actions">
+        <button id="btn-cancel-edit" class="btn btn-secondary hidden">
+          Cancelar
+        </button>
         <button id="btn-submit-movie" class="btn btn-primary">
           Agregar
         </button>

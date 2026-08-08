@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Películas | Ingreso</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="login-container glass">
+    <h1>🎬 CATÁLOGO<br />DE PELÍCULAS</h1>
+    <p>Seleccioná con qué rol querés ingresar:</p>
+
+    <div class="login-actions">
+      <button onclick="login('user')" class="btn btn-secondary">
+        Entrar como Usuario
+      </button>
+      <button onclick="login('admin')" class="btn btn-primary">
+        Entrar como Administrador
+      </button>
+    </div>
+  </main>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

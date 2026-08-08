@@ -1,0 +1,415 @@
+/* =========================================================================
+   style.css — Catálogo de Películas
+   Concepto: videoclub retro / cinta VHS. Fondo oscuro azulado, contenedores
+   de vidrio esmerilado (glassmorphism), acentos neón. El elemento "firma"
+   son las tarjetas de película con silueta de cinta VHS (borde perforado).
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+/* --- Tokens de diseño ---------------------------------------------------
+   Centralizamos colores y medidas en variables CSS (custom properties).
+   Ventaja sobre hardcodear el valor en cada regla: si querés cambiar el
+   acento magenta por otro color, se cambia en un solo lugar y se propaga
+   a todo el archivo. Es el mismo principio de "single source of truth"
+   que usamos en storage.js, aplicado a diseño en vez de a datos. */
+:root {
+  --bg: #0b0e1a;
+  --bg-alt: #12162a;
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-border: rgba(255, 255, 255, 0.09);
+
+  --neon-magenta: #ff2e88;
+  --neon-cyan: #05f2db;
+  --neon-violet: #7b2ff7;
+
+  --text: #e8e6f3;
+  --text-muted: #8a8fa8;
+
+  --font-display: "Press Start 2P", monospace;
+  --font-body: "Space Grotesk", sans-serif;
+
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.015) 0px,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(circle at 15% 0%, rgba(123, 47, 247, 0.16), transparent 45%),
+    radial-gradient(circle at 85% 100%, rgba(5, 242, 219, 0.12), transparent 45%);
+  background-attachment: fixed;
+}
+
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px); 
+}
+
+/* --- Login (index.html) -------------------------------------------------- */
+.login-container {
+  max-width: 480px;
+  margin: 12vh auto;
+  padding: 48px 36px;
+  text-align: center;
+}
+
+.login-container h1 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  color: var(--neon-cyan);
+  text-shadow:
+    0 0 8px rgba(5, 242, 219, 0.7),
+    0 0 22px rgba(5, 242, 219, 0.35);
+  margin-bottom: 12px;
+}
+
+.login-container p {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 13px 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  color: var(--text);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--neon-magenta), var(--neon-violet));
+  box-shadow: 0 0 18px rgba(255, 46, 136, 0.35);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 26px rgba(255, 46, 136, 0.55);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--glass-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 16px rgba(5, 242, 219, 0.3);
+}
+
+.btn-danger {
+  background: rgba(255, 46, 136, 0.12);
+  border-color: rgba(255, 46, 136, 0.4);
+  color: #ffb3d3;
+}
+
+.btn-danger:hover {
+  background: rgba(255, 46, 136, 0.22);
+  box-shadow: 0 0 14px rgba(255, 46, 136, 0.3);
+}
+
+.btn-icon {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+/* --- Header de peliculas.html --------------------------------------------- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 20px 28px;
+}
+
+.app-header h1 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--neon-magenta);
+  text-shadow: 0 0 10px rgba(255, 46, 136, 0.55);
+  margin: 0;
+}
+
+.session-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.role-badge {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+
+.role-badge.role-admin {
+  color: var(--neon-violet);
+  box-shadow: 0 0 10px rgba(123, 47, 247, 0.4) inset;
+}
+
+.role-badge.role-user {
+  color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(5, 242, 219, 0.4) inset;
+}
+
+/* --- Contenedor principal / grilla ---------------------------------------- */
+.app-main {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding: 0 28px;
+}
+
+.section-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 28px 0 16px;
+  color: var(--text);
+}
+
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+}
+
+.filters-bar .search-input {
+  flex: 1 1 220px;
+}
+
+.filters-bar input,
+.filters-bar select {
+  font-family: var(--font-body);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.filters-bar select {
+  flex: 0 1 170px;
+}
+
+.filters-bar input:focus,
+.filters-bar select:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 0 3px rgba(5, 242, 219, 0.15);
+}
+
+.filters-bar select option {
+  background: var(--bg-alt);
+  color: var(--text);
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.movie-card {
+  position: relative;
+  padding: 18px 18px 16px 26px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px var(--neon-cyan), 0 0 24px rgba(5, 242, 219, 0.25);
+}
+
+.movie-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0px,
+    rgba(255, 255, 255, 0.35) 6px,
+    transparent 6px,
+    transparent 16px
+  );
+  -webkit-mask-image: radial-gradient(circle, black 55%, transparent 56%);
+  mask-image: radial-gradient(circle, black 55%, transparent 56%);
+  -webkit-mask-size: 10px 16px;
+  mask-size: 10px 16px;
+  -webkit-mask-repeat: repeat-y;
+  mask-repeat: repeat-y;
+}
+
+.movie-card .movie-year {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.movie-card h3 {
+  margin: 6px 0 4px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.movie-card .movie-genre {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--neon-cyan);
+  border: 1px solid rgba(5, 242, 219, 0.4);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-top: 6px;
+}
+
+.movie-card .movie-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+/* --- Formulario (alta / edición, solo admin) ------------------------------- */
+.movie-form {
+  padding: 24px 26px;
+  margin-bottom: 8px;
+  display: grid;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  gap: 6px;
+}
+
+.form-row label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.form-row input,
+.form-row select {
+  font-family: var(--font-body);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 11px 12px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 0 3px rgba(5, 242, 219, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- Accesibilidad: foco visible siempre, incluso sobre el fondo oscuro --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+/* --- Responsive ------------------------------------------------------------ */
+@media (max-width: 560px) {
+  .login-container {
+    margin: 8vh auto;
+    padding: 36px 22px;
+  }
+
+  .app-header {
+    padding: 16px 18px;
+  }
+
+  .app-main {
+    padding: 0 18px;
+  }
+
+  .movies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Reduced motion: respetamos la preferencia del sistema operativo ------ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

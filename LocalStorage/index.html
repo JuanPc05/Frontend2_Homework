@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 1. Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- 2. Tu CSS personalizado (Cargado después para sobrescribir) -->
+    <link rel="stylesheet" href="style.css" />
+    <title>LocalStorage</title>
+  </head>
+  <!-- Usamos Bootstrap para centrar todo en la pantalla y hacer el texto claro -->
+  <body
+    class="min-vh-100 d-flex justify-content-center align-items-center text-light"
+  >
+    <!-- main_contain ahora usa clases de Bootstrap para padding, sombras y bordes redondeados -->
+    <main
+      class="main_contain p-4 p-md-5 rounded-4 shadow-lg d-flex flex-column align-items-center gap-3"
+    >
+      <div class="w-100">
+        <h1 class="text-center mb-4">Listado de productos</h1>
+      </div>
+
+      <!-- Quitamos el bg-secondary para que se vea el cristal del fondo -->
+      <div class="w-100 d-flex justify-content-center">
+        <form class="w-100" style="max-width: 400px">
+          <div class="mb-3">
+            <label for="nameProd" class="form-label">Nombre producto</label>
+            <input type="text" class="form-control" id="nameProduct" />
+            <div id="productHelp" class="form-text text-light opacity-75">
+              Agrega un nombre de producto
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="priceProduct" class="form-label"
+              >Precio del producto</label
+            >
+            <input type="number" class="form-control" id="priceProduct" />
+          </div>
+          <div class="mb-3">
+            <label for="amountProduct" class="form-label"
+              >Cantidad de productos</label
+            >
+            <input type="number" class="form-control" id="amountProduct" />
+          </div>
+          <div class="mb-3">
+            <label for="imageProduct" class="form-label">Imagen producto</label>
+            <input type="url" class="form-control" id="imageProduct" />
+          </div>
+          <div class="d-flex gap-2 mt-2">
+            <button
+              type="button"
+              class="btn btn-primary w-100"
+              id="btnSave"
+            >
+              Guardar
+            </button>
+            <button type="button" class="btn btn-danger w-100" id="btn-borrar">
+              Borrar
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

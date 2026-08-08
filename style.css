@@ -1,0 +1,84 @@
+/* Estilos Generales (Inspirados en tu tarea) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #eee; /* Texto claro para el fondo oscuro */
+            background: url('image/pantallaEntrada.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor Principal (La tarjeta central) */
+        .container {
+            background-color: rgba(44, 49, 61, 0.85); /* Color de fondo semitransparente, similar al original */
+            padding: 40px 60px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px); /* Efecto de desenfoque detrás del fondo */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 36px;
+            color: #e74c3c; /* Color rojo del título de tu tarea */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Lista de semanas */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Elementos de la lista (Los enlaces) */
+        li {
+            margin-bottom: 15px;
+        }
+
+        a {
+            display: flex;
+            justify-content: space-between; /* Espacio entre el texto y el icono */
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.05); /* Fondo muy sutil para cada fila */
+            color: #eee;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease; /* Animación suave al pasar el ratón */
+            font-size: 18px;
+            border: 1px solid transparent;
+        }
+
+        /* Efecto Hover (Al pasar el ratón) */
+        a:hover {
+            background-color: rgba(231, 76, 60, 0.15); /* Un tono rojizo suave al pasar el ratón */
+            transform: translateX(5px); /* Pequeño movimiento hacia la derecha */
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+
+        /* Icono de la flecha */
+        a span.icon {
+            color: #2ecc71; /* Verde similar al icono de check de tu tarea */
+            font-size: 20px;
+        }
+
+        /* Pequeña etiqueta de información opcional */
+        small {
+            display: block;
+            margin-top: 30px;
+            color: #95a5a6;
+            font-size: 14px;
+        }
